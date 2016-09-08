@@ -33,6 +33,9 @@ function loadSound(url) {
       button.innerText = 'Beam Me Up!';
       button.addEventListener('click', beamMeUp);
       document.body.appendChild(button);
+      var createdBy = document.createElement('p');
+      createdBy.innerText = 'Created by Ben Wiley';
+      document.body.appendChild(createdBy);
     });
   }
   request.send();
