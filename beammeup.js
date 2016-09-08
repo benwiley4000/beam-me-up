@@ -15,19 +15,24 @@ function loadSound(url) {
 
   request.onload = function() {
     ctx.decodeAudioData(request.response, function(buffer) {
-
-      var rate = 1.0;
-      var timeoutLength = 600;
-      function powerup () {
-        if (rate > 2.65) {
-          return;
-        }
-        playSound(buffer, rate);
-        rate += 0.05;
-        timeoutLength *= 0.91;
+      function beamMeUp () {
+        var rate = 1.0;
+        var timeoutLength = 600;
+        function powerup () {
+          if (rate > 2.65) {
+            return;
+          }
+          playSound(buffer, rate);
+          rate += 0.05;
+          timeoutLength *= 0.91;
+          setTimeout(powerup, timeoutLength);
+        };
         setTimeout(powerup, timeoutLength);
-      };
-      setTimeout(powerup, timeoutLength);
+      }
+      var button = document.createElement('button');
+      button.innerText = 'Beam Me Up!';
+      button.addEventListener('click', beamMeUp);
+      document.body.appendChild(button);
     });
   }
   request.send();
