@@ -27,7 +27,7 @@ function loadSound(url) {
           timeoutLength *= 0.91;
           setTimeout(powerup, timeoutLength);
         };
-        setTimeout(powerup, timeoutLength);
+        powerup();
       }
 
       var container = document.getElementById('beammeup');
