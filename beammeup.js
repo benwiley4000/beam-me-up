@@ -29,13 +29,16 @@ function loadSound(url) {
         };
         setTimeout(powerup, timeoutLength);
       }
+
+      var container = document.getElementById('beammeup');
+
       var button = document.createElement('button');
       button.innerText = 'Beam Me Up!';
       button.addEventListener('click', beamMeUp);
-      document.body.appendChild(button);
+      container.appendChild(button);
       var createdBy = document.createElement('p');
       createdBy.innerText = 'Created by Ben Wiley';
-      document.body.appendChild(createdBy);
+      container.appendChild(createdBy);
     });
   }
   request.send();
