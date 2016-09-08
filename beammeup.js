@@ -13,7 +13,6 @@ function loadSound(url) {
   request.open('GET', url, true);
   request.responseType = 'arraybuffer';
 
-  // Decode asynchronously
   request.onload = function() {
     ctx.decodeAudioData(request.response, function(buffer) {
 
@@ -21,7 +20,7 @@ function loadSound(url) {
       var timeoutLength = 600;
       function powerup () {
         if (rate > 2.65) {
-	        return;
+          return;
         }
         playSound(buffer, rate);
         rate += 0.05;
@@ -34,4 +33,4 @@ function loadSound(url) {
   request.send();
 }
 
-loadSound('/audio/sfx-power-up.ogg');
+loadSound('/sfx-power-up.ogg');
